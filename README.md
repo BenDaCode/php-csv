@@ -5,40 +5,54 @@ Include CSV.php in your project.
 
 Examples
 
+Create CSV object, filename is rquired, constructor expects string
 <pre>
-//create CSV object, filename is rquired, constructor expects string
 $filename = "myFile.csv";
 $csv = new CSV($filename);
+</pre>
 
-//set header of CSV (first line), expects array. 
+Set header of CSV (first line), expects array.
+<pre>
 $header=['Column1','Column2'];
 $csv->setHeader($header);
+</pre>
 
-//set body of CSV. You need to run this function for each line
+Set body of CSV. You need to run this function for each line
+<pre>
 $body=['ContentColumn1','ContentColumn2'];
 $csv->setBody($body);
+</pre>
 
 or
 
+<pre>
 foreach(data as line){
 	$csv->setBody(['line']);
 }
+</pre>
 
-//save file to folder or force download, expects TYPE and PATH (both strings and optional). On default ouput to browser. 
+Save file to folder or force download, expects TYPE and PATH (both strings and optional). 
+On default ouput to browser. 
+<pre>
 $csv->save(); //output to browser
 $csv->save('local') //saves file to folder where the script is running
 $csv->save('local', 'My/Save/Folder'); //saves file to My/Save/Folder
+</pre>
 
-/*Optional Settings*/
+Optional Settings
 
-//set save path before instead of adding parameter to save() function
+Set save path before instead of adding parameter to save() function
+<pre>
 $csv->setPath("Path/To/My/Save/Folder");
+</pre>
 
-//set separator. Default seperator is ;. Expects string
+Set separator. Default seperator is ;. Expects string
+<pre>
 $csv->setSeparator(',');
- 
+</pre>
 
-//get functions
+Get functions
+<pre>
 $csv->getName(); //get filename of object
 $csv->getHeader() //get header of object
 $csv->getBody // get body / content of object
